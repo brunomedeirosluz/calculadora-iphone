@@ -29,7 +29,14 @@ function Calculator() {
 
   function calculate() {
     try {
-      setInput(eval(input).toString());
+      const result = eval(input).toString();
+      const maxLength = 6;
+  
+      if (result.length > maxLength) {
+        setInput(result.slice(0, maxLength)); 
+      } else {
+        setInput(result);
+      }
     } catch (error) {
       setInput("Error");
     }
